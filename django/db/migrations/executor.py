@@ -80,7 +80,7 @@ class MigrationExecutor(object):
 
         all_forwards = all(not backwards for mig, backwards in plan)
         all_backwards = all(backwards for mig, backwards in plan)
-         if not plan:
+        if not plan:
             pass  # Nothing to do for an empty plan
         elif all_forwards == all_backwards:
             # This should only happen if there's a mixed plan
@@ -96,7 +96,7 @@ class MigrationExecutor(object):
             # No need to check for `elif all_backwards` here, as that condition
             # would always evaluate to true.
             self._migrate_all_backwards(plan, full_plan, fake=fake)
-         self.check_replacements()
+        self.check_replacements()
 
     def _migrate_all_forwards(self, plan, full_plan, fake, fake_initial):
         """
